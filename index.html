@@ -6,12 +6,26 @@
   <title>Ali — CV & Life</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --bg-light: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+      --text-light: #333;
+      --pill-bg-light: #eef3ff;
+      --pill-color-light: #4e6ef2;
+      --card-bg-light: white;
+      --btn-bg-light: #4e6ef2;
+      --btn-bg-hover-light: #3b53c7;
+      --btn-secondary-bg-light: #f3f4f6;
+      --btn-secondary-color-light: #333;
+      --shadow-light: rgba(0,0,0,0.2);
+      --shadow-strong-light: rgba(0,0,0,0.3);
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
-      color: #333;
+      background: var(--bg-light);
+      color: var(--text-light);
       perspective: 1000px;
+      transition: background 0.4s, color 0.4s;
     }
     .container {
       max-width: 1100px;
@@ -37,7 +51,8 @@
       color: white;
       font-size: 30px;
       font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px var(--shadow-strong-light);
+      transition: box-shadow 0.4s;
     }
     h1 {
       margin: 0;
@@ -45,24 +60,26 @@
     .lead {
       font-size: 14px;
       color: #555;
+      transition: color 0.4s;
     }
     .pill {
       display: inline-block;
-      background: #eef3ff;
-      color: #4e6ef2;
+      background: var(--pill-bg-light);
+      color: var(--pill-color-light);
       padding: 4px 10px;
       border-radius: 20px;
       font-size: 12px;
       margin: 4px 4px 0 0;
       box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      transition: background 0.4s, color 0.4s;
     }
     .card {
-      background: white;
+      background: var(--card-bg-light);
       padding: 20px;
       border-radius: 14px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       transform: rotateX(2deg) rotateY(-2deg);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.4s, box-shadow 0.4s;
     }
     .card:hover {
       transform: rotateX(0deg) rotateY(0deg) scale(1.02);
@@ -76,9 +93,10 @@
       font-size: 13px;
       margin: 4px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: background 0.4s, box-shadow 0.4s;
     }
     .buttons .btn {
-      background: #4e6ef2;
+      background: var(--btn-bg-light);
       color: white;
       padding: 10px 16px;
       text-decoration: none;
@@ -88,15 +106,16 @@
       align-items: center;
       gap: 8px;
       transition: transform 0.3s, background 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px var(--shadow-light);
     }
     .buttons .btn:hover {
-      background: #3b53c7;
+      background: var(--btn-bg-hover-light);
       transform: translateY(-3px);
     }
     .btn.secondary {
-      background: #f3f4f6;
-      color: #333;
+      background: var(--btn-secondary-bg-light);
+      color: var(--btn-secondary-color-light);
+      transition: background 0.4s, color 0.4s;
     }
     footer {
       text-align: center;
@@ -104,6 +123,77 @@
       font-size: 12px;
       color: #777;
       transform: rotateY(3deg);
+      transition: color 0.4s;
+    }
+    /* Dark theme variables */
+    body.dark {
+      --bg-light: linear-gradient(135deg, #1e1e2f, #121224);
+      --text-light: #ddd;
+      --pill-bg-light: #2a2a40;
+      --pill-color-light: #7a9cff;
+      --card-bg-light: #2a2a40;
+      --btn-bg-light: #5871f9;
+      --btn-bg-hover-light: #3248e8;
+      --btn-secondary-bg-light: #3b3b57;
+      --btn-secondary-color-light: #ccc;
+      --shadow-light: rgba(0,0,0,0.8);
+      --shadow-strong-light: rgba(0,0,0,0.9);
+    }
+    /* Dark theme overrides */
+    body.dark .avatar {
+      box-shadow: 0 8px 20px var(--shadow-strong-light);
+    }
+    body.dark .lead {
+      color: #ccc;
+    }
+    body.dark .pill {
+      background: var(--pill-bg-light);
+      color: var(--pill-color-light);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    }
+    body.dark .card {
+      background: var(--card-bg-light);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    body.dark .skills .s {
+      background: #5871f9;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    }
+    body.dark .buttons .btn {
+      background: var(--btn-bg-light);
+      box-shadow: 0 4px 12px var(--shadow-light);
+    }
+    body.dark .buttons .btn:hover {
+      background: var(--btn-bg-hover-light);
+    }
+    body.dark .btn.secondary {
+      background: var(--btn-secondary-bg-light);
+      color: var(--btn-secondary-color-light);
+    }
+    body.dark footer {
+      color: #aaa;
+    }
+    /* Dark mode toggle button */
+    #darkToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4e6ef2;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+    #darkToggle:hover {
+      background: #3b53c7;
     }
   </style>
 </head>
@@ -191,7 +281,30 @@
     </footer>
   </div>
 
+  <button id="darkToggle" aria-label="Toggle Dark Mode">
+    <i class="fas fa-moon"></i> Dark Mode
+  </button>
+
   <script>
+    const darkToggle = document.getElementById('darkToggle');
+    const body = document.body;
+
+    function updateToggleText() {
+      if(body.classList.contains('dark')) {
+        darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+      } else {
+        darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+      }
+    }
+
+    darkToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      updateToggleText();
+    });
+
+    // Initialize button text
+    updateToggleText();
+
     document.getElementById('openBlog').addEventListener('click', function(){
       window.open('https://blog.example.com','_blank','noopener');
     });
