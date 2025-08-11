@@ -107,6 +107,7 @@
       gap: 8px;
       transition: transform 0.3s, background 0.3s;
       box-shadow: 0 4px 12px var(--shadow-light);
+      cursor: pointer;
     }
     .buttons .btn:hover {
       background: var(--btn-bg-hover-light);
@@ -286,4 +287,29 @@
   </button>
 
   <script>
-    const darkToggle
+    const darkToggle = document.getElementById('darkToggle');
+    const body = document.body;
+
+    function updateToggleText() {
+      if (body.classList.contains('dark')) {
+        darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+      } else {
+        darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+      }
+    }
+
+    darkToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      updateToggleText();
+    });
+
+    // Initialize button text
+    updateToggleText();
+
+    // Blog button event
+    document.getElementById('openBlog').addEventListener('click', function(){
+      window.open('https://blog.example.com', '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
