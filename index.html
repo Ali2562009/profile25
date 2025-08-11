@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ali — CV & Life</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
       --bg-light: linear-gradient(135deg, #f0f4ff, #d9e4ff);
@@ -173,10 +173,10 @@
     body.dark footer {
       color: #aaa;
     }
-    /* Dark mode toggle button */
+    /* Dark mode toggle button - top right */
     #darkToggle {
       position: fixed;
-      bottom: 20px;
+      top: 20px;
       right: 20px;
       background: #4e6ef2;
       color: white;
@@ -286,28 +286,4 @@
   </button>
 
   <script>
-    const darkToggle = document.getElementById('darkToggle');
-    const body = document.body;
-
-    function updateToggleText() {
-      if(body.classList.contains('dark')) {
-        darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-      } else {
-        darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-      }
-    }
-
-    darkToggle.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      updateToggleText();
-    });
-
-    // Initialize button text
-    updateToggleText();
-
-    document.getElementById('openBlog').addEventListener('click', function(){
-      window.open('https://blog.example.com','_blank','noopener');
-    });
-  </script>
-</body>
-</html>
+    const darkToggle
